@@ -40,6 +40,7 @@ JobFlow provides:
 3. **Install the dependencies:**
     ```bash
     pip install -r requirements.txt
+    pip install Flask-SQLAlchemy
     ```
 
 4. **Configure environment variables:**
