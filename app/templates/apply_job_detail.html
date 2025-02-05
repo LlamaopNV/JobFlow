@@ -1,0 +1,24 @@
+<!-- app/templates/apply_job_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Detail - JobFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Job Detail</h1>
+    <nav>
+        <a href="{{ url_for('main.dashboard') }}">Home</a> |
+        <a href="{{ url_for('main.templates_page') }}">Templates</a> |
+        <a href="{{ url_for('main.add_job') }}">Add Job</a> |
+        <a href="{{ url_for('main.apply_job_list') }}">Apply to Job</a> |
+        <a href="{{ url_for('main.status_page') }}">Status</a>
+    </nav>
+    <hr>
+    <h2>{{ job.title }} at {{ job.company }}</h2>
+    <p><strong>Description:</strong> {{ job.description }}</p>
+    <p><strong>Status:</strong> {{ job.status }}</p>
+    <!-- Placeholder for future functionality: skill matching analysis -->
+    <p>Skill matching analysis will be displayed here in future iterations.</p>
+</body>
+</html>

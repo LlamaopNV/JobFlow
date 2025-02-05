@@ -1,0 +1,31 @@
+<!-- app/templates/apply_job_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply to Job - JobFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Apply to Job</h1>
+    <nav>
+        <a href="{{ url_for('main.dashboard') }}">Home</a> |
+        <a href="{{ url_for('main.templates_page') }}">Templates</a> |
+        <a href="{{ url_for('main.add_job') }}">Add Job</a> |
+        <a href="{{ url_for('main.apply_job_list') }}">Apply to Job</a> |
+        <a href="{{ url_for('main.status_page') }}">Status</a>
+    </nav>
+    <hr>
+    <h2>Select a Job to Apply</h2>
+    <ul>
+        {% for job in jobs %}
+            <li>
+                <a href="{{ url_for('main.apply_job_detail', job_id=job.id) }}">
+                    {{ job.title }} at {{ job.company }}
+                </a>
+            </li>
+        {% else %}
+            <li>No jobs available. Please add a job first.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

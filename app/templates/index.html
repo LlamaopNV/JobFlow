@@ -1,0 +1,21 @@
+<!-- app/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobFlow Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>JobFlow Dashboard</h1>
+    <h2>Job Applications</h2>
+    <ul>
+    {% for job in job_apps %}
+        <li>
+            <strong>{{ job.title }}</strong> at {{ job.company }} - Status: {{ job.status }}
+        </li>
+    {% else %}
+        <li>No job applications found.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

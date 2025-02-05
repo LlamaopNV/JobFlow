@@ -1,0 +1,30 @@
+<!-- app/templates/add_job.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Job - JobFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Add Job</h1>
+    <nav>
+        <a href="{{ url_for('main.dashboard') }}">Home</a> |
+        <a href="{{ url_for('main.templates_page') }}">Templates</a> |
+        <a href="{{ url_for('main.add_job') }}">Add Job</a> |
+        <a href="{{ url_for('main.apply_job_list') }}">Apply to Job</a> |
+        <a href="{{ url_for('main.status_page') }}">Status</a>
+    </nav>
+    <hr>
+    <form action="{{ url_for('main.add_job') }}" method="post">
+        <label for="job_url">Job URL (Optional):</label>
+        <input type="text" name="job_url" id="job_url"><br><br>
+        <label for="job_title">Job Title:</label>
+        <input type="text" name="job_title" id="job_title" required><br><br>
+        <label for="company">Company:</label>
+        <input type="text" name="company" id="company" required><br><br>
+        <label for="description">Job Description:</label><br>
+        <textarea name="description" id="description" rows="5" cols="50"></textarea><br><br>
+        <button type="submit">Add Job</button>
+    </form>
+</body>
+</html>

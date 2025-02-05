@@ -1,0 +1,31 @@
+<!-- app/templates/status.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Status - JobFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Application Status</h1>
+    <nav>
+        <a href="{{ url_for('main.dashboard') }}">Home</a> |
+        <a href="{{ url_for('main.templates_page') }}">Templates</a> |
+        <a href="{{ url_for('main.add_job') }}">Add Job</a> |
+        <a href="{{ url_for('main.apply_job_list') }}">Apply to Job</a> |
+        <a href="{{ url_for('main.status_page') }}">Status</a>
+    </nav>
+    <hr>
+    <h2>Update Job Application Status</h2>
+    <form action="{{ url_for('main.status_page') }}" method="post">
+        <label for="job_id">Job:</label>
+        <select name="job_id" id="job_id" required>
+            {% for job in jobs %}
+                <option value="{{ job.id }}">{{ job.title }} at {{ job.company }} (Current: {{ job.status }})</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="status">New Status:</label>
+        <input type="text" name="status" id="status" required><br><br>
+        <button type="submit">Update Status</button>
+    </form>
+</body>
+</html>

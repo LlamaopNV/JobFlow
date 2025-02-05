@@ -1,0 +1,26 @@
+<!-- app/templates/dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobFlow Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>JobFlow Dashboard</h1>
+    <nav>
+        <a href="{{ url_for('main.dashboard') }}">Home</a> |
+        <a href="{{ url_for('main.templates_page') }}">Templates</a> |
+        <a href="{{ url_for('main.add_job') }}">Add Job</a> |
+        <a href="{{ url_for('main.apply_job_list') }}">Apply to Job</a> |
+        <a href="{{ url_for('main.status_page') }}">Status</a>
+    </nav>
+    <hr>
+    <h2>Statistics</h2>
+    <ul>
+        <li>Total Jobs Added: {{ total_jobs }}</li>
+        <li>Jobs with Updated Status: {{ applied_jobs }}</li>
+        <li>CV Templates: {{ cv_templates }}</li>
+        <li>Cover Letter Templates: {{ coverletter_templates }}</li>
+    </ul>
+</body>
+</html>
